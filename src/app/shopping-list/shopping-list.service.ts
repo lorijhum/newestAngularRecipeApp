@@ -18,4 +18,15 @@ export class ShoppingListService {
       this.ingredientChanged.emit(this.ingredients.slice());
 
   }
+
+  addIngredients(ingredients: Ingredient[]) {
+    // we could use a for loop to add the ingredients, but this would emit an event for each ingredient added
+    // therefore we are using the code  below to push the entire array at one time
+
+      // for (let ingredient of Ingredient) {
+      //     this.addIngredient(ingredient);
+     // }
+      this.ingredients.push(...ingredients);
+      this.ingredientChanged.emit(this.ingredients.slice());
+  }
 }
