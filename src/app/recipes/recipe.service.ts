@@ -1,5 +1,4 @@
 import { Recipe } from './recipe.model';
-import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/Ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 
@@ -22,9 +21,7 @@ export class RecipeService {
 
       constructor(private shoppingListService: ShoppingListService){}
 
-   recipeSelected = new EventEmitter<Recipe>();  
-
-  getRecipes() {
+    getRecipes() {
       //adding slice returns a copy of the array
       return this.recipes.slice();
   }  

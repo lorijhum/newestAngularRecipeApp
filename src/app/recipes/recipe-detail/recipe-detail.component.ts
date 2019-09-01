@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe} from '../recipe.model';
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { relative } from 'path';
+
 
 
 @Component({
@@ -34,9 +34,10 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   onEditRecipe() {
-    this.router.navigate(['edit'], {relativeTo: this.route});
+     this.router.navigate(['edit'], {relativeTo: this.route});
     // we didn't need the id, if we wanted to use it, we would have this
   //  this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
+  
   }
 
 }
