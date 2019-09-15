@@ -13,7 +13,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 export class RecipeDetailComponent implements OnInit {
  recipe: Recipe;
  id: number;
-
+ 
  constructor(private recipeService: RecipeService,
              private route: ActivatedRoute,
              private router: Router
@@ -38,6 +38,10 @@ export class RecipeDetailComponent implements OnInit {
     // we didn't need the id, if we wanted to use it, we would have this
   //  this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   
+  }
+  onDelete() {
+    this.recipeService.deleteRecipe(this.id);
+    this.router.navigate(['recipes']);
   }
 
 }
