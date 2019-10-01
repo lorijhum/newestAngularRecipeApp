@@ -6,8 +6,8 @@ import { Subject } from 'rxjs';
 
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
-
-    private recipes: Recipe[] = [
+    //now that are recipes are stored on the server, we don't need to create these every time
+    /* private recipes: Recipe[] = [
         new Recipe('Mario Malta', 'Eggplant dinner', 
         'https://ccs1-jl7jxm3ukfwyutip.netdna-ssl.com/wp-content/uploads/2018/09/garlic-parmesan-eggplant-recipe-4.jpg',
         [
@@ -20,9 +20,16 @@ export class RecipeService {
           new Ingredient('beef', 1),
           new Ingredient('potatoes', 4)
         ])
-      ];
+      ]; */
+
+      private recipes: Recipe[] = [];
 
       constructor(private shoppingListService: ShoppingListService){}
+
+    setRecipes(recipes: Recipe[])  {
+      this.recipes = recipes;
+      this.recipesChanged.next(this.recipes.slice());
+    }
 
     getRecipes() {
       //adding slice returns a copy of the array
