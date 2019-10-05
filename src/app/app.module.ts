@@ -19,6 +19,9 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { RecipeService } from './recipes/recipe.service';
 import { DataStorageService } from './shared/data-storage.service';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
+import { AuthComponent } from './auth/auth/auth.component';
+import { AuthService } from './auth/auth/auth.service';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner/loading-spinner.component';
 
 
 
@@ -34,7 +37,9 @@ import { RecipesResolverService } from './recipes/recipes-resolver.service';
     ShoppingEditComponent,
     DropdownDirective,
     RecipeStartComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
     
   ],
   imports: [
@@ -45,7 +50,7 @@ import { RecipesResolverService } from './recipes/recipes-resolver.service';
     AppRoutingModule
          
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, RecipesResolverService],
+  providers: [ShoppingListService, RecipeService, DataStorageService, RecipesResolverService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
