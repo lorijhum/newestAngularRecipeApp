@@ -32,26 +32,19 @@ export class AuthComponent implements OnInit {
     let authObs: Observable<AuthResponseData>;
     
     if(this.isLoginMode) {
-      this.authService.login(email, password).subscribe(resData => {
-        console.log(resData);
-        this.isLoading = false;
-      }, errorMessage => {
-        console.log(errorMessage);
-        this.error = errorMessage;
-        this.isLoading = false;
-      })
+      authObs = this.authService.login(email, password);
     }else {
-      this.authService.signup(email, password).subscribe(resData => {
-        console.log(resData);
-        this.isLoading = false;
-      }, errorMessage => {
-        console.log(errorMessage);
-        this.error = errorMessage;
-        this.isLoading = false;
-        
-      });
-     
-    }
+      authObs = this.authService.signup(email, password);
+     }
+
+    authObs.subscribe(resData => {
+      console.log(resData);
+      this.isLoading = false;
+    }, errorMessage => {
+      console.log(errorMessage);
+      this.error = errorMessage;
+      this.isLoading = false;
+    })
     form.reset();
 
     }
