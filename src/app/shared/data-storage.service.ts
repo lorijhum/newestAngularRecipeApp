@@ -17,17 +17,11 @@ export class DataStorageService {
      })
  } 
  fetchRecipes() {
-     //using the take operator, i am only getting the user once, like subscribing and unsubscribing after one time
-     return this.authService.user.pipe(
-        take(1),
-        exhaustMap(user => {
-            return this.http.get<Recipe[]>(
-                'https://ng-course-recipe-book-6df68.firebaseio.com/recipes.json',
-                {
-                   params: new HttpParams().set('auth', user.getToken()) 
-                }
-            );
-        }),
+          return this.http.get<Recipe[]>(
+                'https://ng-course-recipe-book-6df68.firebaseio.com/recipes.json'
+               
+            ).pipe(
+        
         map(recipes => {
             return recipes.map(recipe => {
                 return {...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
