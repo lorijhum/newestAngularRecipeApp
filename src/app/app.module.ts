@@ -23,6 +23,7 @@ import { AuthComponent } from './auth/auth/auth.component';
 import { AuthService } from './auth/auth/auth.service';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth/auth-interceptor.service';
+import { AuthGuard } from './auth/auth/auth.guard';
 
 
 
@@ -51,7 +52,7 @@ import { AuthInterceptorService } from './auth/auth/auth-interceptor.service';
     AppRoutingModule
          
   ],
-  providers: [ShoppingListService, RecipeService, DataStorageService, RecipesResolverService, AuthService, 
+  providers: [ShoppingListService, RecipeService, DataStorageService, RecipesResolverService, AuthService, AuthGuard,
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
