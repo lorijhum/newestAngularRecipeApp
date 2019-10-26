@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     imports: [
       //use the hash set to true if you can't get it to work after deployment
     //  RouterModule.forRoot(appRoutes, {useHash: true})
-      RouterModule.forRoot(appRoutes)
+      RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules})
     ],
     exports: [
         RouterModule
