@@ -6,11 +6,11 @@ import { DataStorageService } from './shared/data-storage.service';
 import { RecipesResolverService } from './recipes/recipes-resolver.service';
 import { AuthService } from './auth/auth/auth.service';
 import { AuthGuard } from './auth/auth/auth.guard';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
+
 
 @NgModule({
     providers: [
-        [ShoppingListService, RecipeService, DataStorageService, RecipesResolverService, AuthService, AuthGuard,
+        [RecipeService, DataStorageService, RecipesResolverService, AuthService, AuthGuard,
             {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],
     ]
 })
